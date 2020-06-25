@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Seed from './seed.js';
 
 class Product extends React.Component {
     render() {
+        console.log(this.props.productImageUrl);
         return (
             <div className='item'>
                 <div className='image'>
@@ -40,7 +42,7 @@ class Product extends React.Component {
 
 class ProductList extends React.Component {
     render() {
-        const product = Seed.products[0];
+        const product = this.props.seed[0];
         return (
             <div className='ui stackable items'>
                 <Product 
@@ -57,7 +59,18 @@ class ProductList extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <ProductList />,
-    document.getElementById('content')
-);
+class App extends React.Component {
+    render() {
+        return (
+            <ProductList 
+                seed={Seed}
+            />
+        )
+    }
+}
+// ReactDOM.render(
+//     <ProductList />,
+//     document.getElementById('content')
+// );
+
+export default App;
