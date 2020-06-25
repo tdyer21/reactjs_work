@@ -42,6 +42,9 @@ class Product extends React.Component {
 
 class ProductList extends React.Component {
     render() {
+        const products = this.props.seed.sort((a, b) => (
+            b.votes - a.votes
+        ));
         const productComponents = this.props.seed.map((product) => (
             <Product 
                 key={'product-' + product.id}
