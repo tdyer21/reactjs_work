@@ -11,7 +11,7 @@ const Seed = [
     url: '#',
     votes: generateVoteCount(),
     submitterAvatarUrl: './images/prof.png',
-    productImageUrl: './images/image-aqua.png',
+    productImageUrl: './images/slug.png',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const Seed = [
     description: 'Earn points when your favorite politicians pass legislation.',
     url: '#',
     votes: generateVoteCount(),
-    submitterAvatarUrl: './images/daniel.jpg',
+    submitterAvatarUrl: './images/slug.jpg',
     productImageUrl: './images/image-aqua.png',
   },
   {
@@ -29,7 +29,7 @@ const Seed = [
     url: '#',
     votes: generateVoteCount(),
     submitterAvatarUrl: './images/prof.png',
-    productImageUrl: './images/tdy.jpg',
+    productImageUrl: './images/slug.jpg',
       },
       {
         id: 4,

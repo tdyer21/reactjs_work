@@ -42,18 +42,21 @@ class Product extends React.Component {
 
 class ProductList extends React.Component {
     render() {
-        const product = this.props.seed[0];
+        const productComponents = this.props.seed.map((product) => (
+            <Product 
+                key={'product-' + product.id}
+                id={product.id}
+                title={product.title}
+                description={product.description}
+                url={product.url}
+                votes={product.votes}
+                submitterAvatarUrl={product.submitterAvatarUrl}
+                productImageUrl={product.productImageUrl}
+            />
+        ));
         return (
             <div className='ui stackable items'>
-                <Product 
-                    id={product.id}
-                    title={product.title}
-                    description={product.description}
-                    url={product.url}
-                    votes={product.votes}
-                    submitterAvatarUrl={product.submitterAvatarUrl}
-                    productImageUrl={product.productImageUrl}
-                />
+                {productComponents}
             </div>
         );
     }
