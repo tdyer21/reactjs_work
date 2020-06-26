@@ -2,7 +2,9 @@
 function generateVoteCount() {
   return Math.floor((Math.random() * 50) + 15);
 }
-  
+
+// Changed some formatting so its no longer 
+// window.Seed, and removed the product abs layer
 const Seed = [
   {
     id: 1,
