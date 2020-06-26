@@ -3,17 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Seed from './seed.js';
 
+// Product Component, used inside of ProductList
+// And filled with data from seed.js
 class Product extends React.Component {
 
+    // Binding for data
     constructor(props){
         super(props);
         this.handleUpvote = this.handleUpvote.bind(this);
     }
 
+    // Used for propagating the button click to actually
+    // Update the vote count values
     handleUpvote() {
         this.props.onVote(this.props.id);
     }
 
+    // How the product should be formatted
     render() {
         console.log(this.props.productImageUrl);
         return (
@@ -50,12 +56,15 @@ class Product extends React.Component {
     }
 }
 
+// Product list contains Product components
 class ProductList extends React.Component {
 
+    // Used to check if the upvote request worked
     handleProductUpvote(productId){
         console.log(productId + 'was upvoted');
     }
 
+    // Sort products by vote count and display them
     render() {
         const products = this.props.seed.sort((a, b) => (
             b.votes - a.votes
