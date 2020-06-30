@@ -10,7 +10,11 @@ class Product extends React.Component {
 
     // Binding for data
     constructor(props){
+        // Always call this first
         super(props);
+
+        // There will typically be a set of custom
+        // Method bindings here. 
         this.handleUpvote = this.handleUpvote.bind(this);
     }
 
@@ -60,6 +64,15 @@ class Product extends React.Component {
 // Product list contains Product components
 class ProductList extends React.Component {
 
+    // Constructor for state
+    constructor(props){
+        super(props);
+
+        this.state = {
+            products: [],
+        };
+    }
+
     // Used to check if the upvote request worked
     handleProductUpvote(productId){
         console.log(productId + 'was upvoted');
@@ -67,7 +80,7 @@ class ProductList extends React.Component {
 
     // Sort products by vote count and display them
     render() {
-        const products = this.props.seed.sort((a, b) => (
+        const products = this.state.seed.sort((a, b) => (
             b.votes - a.votes
         ));
         const productComponents = this.props.seed.map((product) => (
