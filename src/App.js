@@ -5,6 +5,7 @@ import Seed from './seed.js';
 
 // Product Component, used inside of ProductList
 // And filled with data from seed.js
+// Placeholder doing this as a version test
 class Product extends React.Component {
 
     // Binding for data
