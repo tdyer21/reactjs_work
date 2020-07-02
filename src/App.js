@@ -73,9 +73,24 @@ class ProductList extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.setState({ products: Seed.products })
+    }
+
     // Used to check if the upvote request worked
     handleProductUpvote(productId){
-        console.log(productId + 'was upvoted');
+        const nextProducts = this.state.products.map((product) => {
+            if(product.id === productId) {
+                return Object.assign({}, product, {
+                    votes: product.votes + 1,
+                });
+            } else {
+                return product;
+            }
+        });
+        this.setState({
+            products: nextProducts,
+        });
     }
 
     // Sort products by vote count and display them
