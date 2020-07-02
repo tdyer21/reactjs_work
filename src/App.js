@@ -104,6 +104,7 @@ class ProductList extends React.Component {
     }
 }
 
+// Testing something
 class App extends React.Component {
     render() {
         return (
