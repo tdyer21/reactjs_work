@@ -26,7 +26,7 @@ class Product extends React.Component {
 
     // How the product should be formatted
     render() {
-        console.log(this.props.productImageUrl);
+        //console.log(this.props.productImageUrl);
         return (
             <div className='item'>
                 <div className='image'>
@@ -71,16 +71,19 @@ class ProductList extends React.Component {
         this.state = {
             products: [],
         };
+
+        this.handleProductUpVote = this.handleProductUpVote.bind(this);
     }
 
     componentDidMount() {
-        this.setState({ products: Seed.products })
+        this.setState({ products: Seed });
     }
 
     // Used to check if the upvote request worked
-    handleProductUpvote(productId){
+    handleProductUpVote(productId){
         const nextProducts = this.state.products.map((product) => {
             if(product.id === productId) {
+                console.log('shouldve added' + product.votes)
                 return Object.assign({}, product, {
                     votes: product.votes + 1,
                 });
@@ -88,17 +91,20 @@ class ProductList extends React.Component {
                 return product;
             }
         });
+        
         this.setState({
             products: nextProducts,
         });
+        //console.log(nextProducts)
+        //console.log(this.products)
     }
 
     // Sort products by vote count and display them
     render() {
-        const products = this.state.seed.sort((a, b) => (
+        const products = this.state.products.sort((a, b) => (
             b.votes - a.votes
         ));
-        const productComponents = this.props.seed.map((product) => (
+        const productComponents = products.map((product) => (
             <Product 
                 key={'product-' + product.id}
                 id={product.id}
@@ -108,7 +114,7 @@ class ProductList extends React.Component {
                 votes={product.votes}
                 submitterAvatarUrl={product.submitterAvatarUrl}
                 productImageUrl={product.productImageUrl}
-                onVote={this.handleProductUpvote}
+                onVote={this.handleProductUpVote}
             />
         ));
         return (
