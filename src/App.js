@@ -83,7 +83,7 @@ class ProductList extends React.Component {
     handleProductUpVote(productId){
         const nextProducts = this.state.products.map((product) => {
             if(product.id === productId) {
-                console.log('shouldve added' + product.votes)
+                //console.log('shouldve added' + product.votes)
                 return Object.assign({}, product, {
                     votes: product.votes + 1,
                 });
